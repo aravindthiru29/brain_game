@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Puzzle: {{ puzzle_type | title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body data-puzzle="{{ puzzle_type }}">
+    <div class="terminal-container terminal-game">
+        <header class="header mini-header">
+            <h2>{{ puzzle_type | upper }} ADVENTURE</h2>
+            <div class="stats">
+                <span>SCORE: <span id="game-score">{{ score }}</span></span>
+                <span>TIME: <span id="game-timer">0.0</span>s</span>
+            </div>
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-outline abort-btn">BYE BYE</a>
+        </header>
+
+        <main class="game-interface">
+            <div class="mission-briefing">
+                <h3>YOUR CHALLENGE:</h3>
+                <p id="mission-text">Getting mystery puzzle ready...</p>
+                <div id="hint-container" class="hidden" style="margin-top: 1rem; border-top: 2px dashed #fab005; padding-top: 0.5rem; animation: popIn 0.3s ease;">
+                    <strong style="color: #f08c00;">LITTLE HINT:</strong> <span id="hint-text"></span>
+                </div>
+                <button id="hint-btn" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem; background: #fab005; box-shadow: 0 4px 0 #f08c00;">NEED A HINT?</button>
+            </div>
+
+            <div class="interaction-zone" id="interaction-zone" style="text-align: center;">
+                <!-- Dynamically populated based on puzzle type -->
+            </div>
+
+            <div class="feedback-panel hidden" id="feedback-panel">
+                <span id="feedback-text"></span>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

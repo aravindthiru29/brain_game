@@ -1,0 +1,257 @@
+:root {
+    --bg-color: #f0fdf4;
+    --card-bg: #ffffff;
+    --primary-color: #22c55e;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    --error-color: #ef4444;
+    --text-color: #1e293b;
+    --title-font: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#d1fae5 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+.terminal-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 8px solid #d1fae5;
+}
+
+.header {
+    border-bottom: 4px solid #f1f5f9;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.status-panel {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+
+.status-indicator {
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+.status-stable {
+    background-color: var(--primary-color);
+}
+
+.status-critical {
+    background-color: var(--error-color);
+}
+
+.stats {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.stats span {
+    background: #f1f5f9;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.module-card {
+    background: #fff;
+    border: 4px solid #f1f5f9;
+    padding: 2rem;
+    border-radius: 25px;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.module-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-color);
+}
+
+.module-card h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.module-card p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Allow the paragraph to grow and push the button down */
+}
+
+.module-card .btn {
+    margin-top: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #15803d;
+    transition: all 0.1s;
+    font-family: inherit;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 transparent;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn-outline {
+    background-color: #94a3b8;
+    box-shadow: 0 4px 0 #64748b;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Game Styles */
+.mini-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left; /* Override header text-align: center */
+}
+
+.mini-header h2 {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 0; /* Override header margin-bottom if needed? Wait, and check. */
+}
+
+.mission-briefing {
+    background: #fff9db;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    border: 3px dashed #fab005;
+}
+
+.mission-briefing h3 {
+    color: #f08c00;
+    margin-bottom: 1rem;
+}
+
+.terminal-input {
+    width: 200px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    border: 3px solid #e2e8f0;
+    text-align: center;
+    font-family: inherit;
+    font-weight: bold;
+    outline: none;
+}
+
+.terminal-input:focus {
+    border-color: var(--secondary-color);
+}
+
+.feedback-panel {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feedback-success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 3px solid #86efac;
+}
+
+.feedback-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 3px solid #fca5a5;
+}
+
+.blink {
+    display: none;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.radio-item {
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.radio-item input {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
