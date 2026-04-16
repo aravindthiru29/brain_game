@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Puzzle: {{ puzzle_type | title }}</title>
+    <title>SPACE ADVENTURE // {{ puzzle_type | upper }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body data-puzzle="{{ puzzle_type }}">
-    <div class="terminal-container terminal-game">
-        <header class="header mini-header">
-            <h2>{{ puzzle_type | upper }} ADVENTURE</h2>
+    <div class="terminal-container">
+        <header class="header mini-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-family: var(--font-title); color: var(--primary-color); margin-bottom: 0;">{{ puzzle_type | upper }} QUEST</h2>
             <div class="stats">
-                <span>SCORE: <span id="game-score">{{ score }}</span></span>
-                <span>TIME: <span id="game-timer">0.0</span>s</span>
+                <span>STARS: <b id="game-score">{{ score }}</b></span>
+                <span>TIME: <b id="game-timer">0.0</b>s</span>
             </div>
-            <a href="{{ url_for('main.dashboard') }}" class="btn btn-outline abort-btn">BYE BYE</a>
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">GO BACK</a>
         </header>
 
         <main class="game-interface">
             <div class="mission-briefing">
-                <h3>YOUR CHALLENGE:</h3>
-                <p id="mission-text">Getting mystery puzzle ready...</p>
-                <div id="hint-container" class="hidden" style="margin-top: 1rem; border-top: 2px dashed #fab005; padding-top: 0.5rem; animation: popIn 0.3s ease;">
-                    <strong style="color: #f08c00;">LITTLE HINT:</strong> <span id="hint-text"></span>
+                <h3>SPACE MISSION:</h3>
+                <p id="mission-text">Getting mystery quest ready...</p>
+                <div id="hint-container" class="hidden" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px dashed var(--secondary-color);">
+                    <strong style="color: var(--accent-color);">LITTLE HINT:</strong> 
+                    <span id="hint-text"></span>
                 </div>
-                <button id="hint-btn" class="btn" style="margin-top: 1rem; padding: 0.4rem 1rem; font-size: 0.8rem; background: #fab005; box-shadow: 0 4px 0 #f08c00;">NEED A HINT?</button>
+                <button id="hint-btn" class="btn" style="margin-top: 1.5rem; padding: 0.5rem 1rem; font-size: 0.9rem;">NEED A HINT?</button>
             </div>
 
             <div class="interaction-zone" id="interaction-zone" style="text-align: center;">
-                <!-- Dynamically populated based on puzzle type -->
+                <!-- Dynamically populated -->
             </div>
 
             <div class="feedback-panel hidden" id="feedback-panel">

@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (type === 'age' || type === 'fruit') {
             interactionZone.innerHTML = `
                 <div class="input-group">
-                    <label style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem; display: block;">>>> TYPE YOUR ANSWER HERE!</label>
+                    <label class="input-label">>>> TYPE YOUR ANSWER</label>
                     <input type="number" id="user-input" class="terminal-input" autofocus autocomplete="off">
                 </div>
                 <button id="submit-btn" class="btn">CHECK IT!</button>
@@ -68,17 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (type === 'pattern') {
             interactionZone.innerHTML = `
                 <div class="input-group">
-                    <label style="font-size: 1.2rem; color: #64748b; margin-bottom: 1.5rem; display: block;">>>> IS THE PATTERN...</label>
+                    <label class="input-label">>>> IS THE RULE...</label>
                     <div class="radio-group">
                         <label class="radio-item"><input type="radio" name="pattern-type" value="multiply" checked> TIMES (X)</label>
                         <label class="radio-item"><input type="radio" name="pattern-type" value="add"> PLUS (+)</label>
                     </div>
                 </div>
                 <div class="input-group">
-                    <label style="font-size: 1.2rem; color: #64748b; margin: 1.5rem 0; display: block;">>>> WHAT'S THE MISSING NUMBER?</label>
+                    <label class="input-label">>>> MISSING NUMBER</label>
                     <input type="number" id="user-val" class="terminal-input" autocomplete="off">
                 </div>
-                <button id="submit-btn" class="btn">SOLVE IT!</button>
+                <button id="submit-btn" class="btn">GUESS!</button>
             `;
 
             document.getElementById('submit-btn').addEventListener('click', () => {
@@ -115,9 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 interactionZone.innerHTML = `
-                    <div class="button-group">
-                        <button class="btn" style="background-color: #3b82f6; box-shadow: 0 4px 0 #2563eb;" onclick="window.location.reload()">ANOTHER ONE!</button> 
-                        <a href="/" class="btn btn-outline">HOME</a>
+                    <div class="button-group" style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                        <button class="btn" onclick="window.location.reload()">GO AGAIN!</button> 
+                        <a href="/" class="btn btn-outline" style="background: rgba(255,255,255,0.2); border-radius: 50px; font-family: var(--font-title); text-decoration: none; padding: 1rem 2rem; color: white;">HOME</a>
                     </div>
                 `;
             }, 500);

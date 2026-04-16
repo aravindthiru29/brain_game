@@ -3,42 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Adventure: Fun Zone</title>
+    <title>GALAXY ADVENTURE // MISSION CONTROL</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="terminal-container">
         <header class="header">
-            <h1 class="glitch-text">BRAIN ADVENTURE</h1>
+            <h1>GALAXY ADVENTURE</h1>
             <div class="status-panel">
                 <div class="status-indicator {{ 'status-stable' if status == 'STABLE' else 'status-critical' }}">
-                    {{ 'Super Smart' if status == 'STABLE' else 'Keep Trying' }}
+                    {{ 'Super Star' if status == 'STABLE' else 'Keep Zooming' }}
                 </div>
                 <div class="stats">
-                    <span>SCORE: <span id="dash-score">{{ score }}</span></span>
-                    <span>SUCCESS: <span id="dash-accuracy">{{ accuracy }}</span>%</span>
+                    <span>STARS: <b id="dash-score">{{ score }}</b></span>
+                    <span>SUCCESS: <b id="dash-accuracy">{{ accuracy }}</b>%</span>
                 </div>
             </div>
         </header>
         
         <main class="modules-grid">
             <div class="module-card">
-                <h2 style="color: #f59e0b;">AGE ADVENTURE</h2>
-                <p>Can you guess how old our friends are? Use your brain power!</p>
-                <a href="{{ url_for('main.game', puzzle_type='age') }}" class="btn" style="background-color: #f59e0b; box-shadow: 0 4px 0 #d97706;">LET'S PLAY</a>
+                <h2>STAR AGES</h2>
+                <p>Can you guess how old our space friends are? Use your super brain!</p>
+                <a href="{{ url_for('main.game', puzzle_type='age') }}" class="btn">GO PLAY</a>
             </div>
             
             <div class="module-card">
-                <h2 style="color: #3b82f6;">MAGIC PATTERNS</h2>
-                <p>Find the missing numbers in our magic sequence train!</p>
-                <a href="{{ url_for('main.game', puzzle_type='pattern') }}" class="btn" style="background-color: #3b82f6; box-shadow: 0 4px 0 #2563eb;">START MAGIC</a>
+                <h2>MAGIC TRAIN</h2>
+                <p>Find the missing numbers on the magic space train! Where's the number hiding?</p>
+                <a href="{{ url_for('main.game', puzzle_type='pattern') }}" class="btn">GO SOLVE</a>
             </div>
             
             <div class="module-card">
-                <h2 style="color: #ec4899;">FRUIT FUN</h2>
-                <p>Count the fruits and solve the puzzle! How fast are you?</p>
-                <a href="{{ url_for('main.game', puzzle_type='fruit') }}" class="btn" style="background-color: #ec4899; box-shadow: 0 4px 0 #db2777;">GO COUNT</a>
+                <h2>FRUIT LAUNCH</h2>
+                <p>Count the space snacks and help the rocket launch! How many are there?</p>
+                <a href="{{ url_for('main.game', puzzle_type='fruit') }}" class="btn">GO COUNT</a>
             </div>
         </main>
     </div>

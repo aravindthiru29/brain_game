@@ -27,7 +27,7 @@ def get_age_puzzle():
     total_later = 3 * base_age + 2 * years_later
     session['current_age'] = {'base_age': base_age}
     return jsonify({
-        "mission": f"Our friend Sam is x years old. His big brother Leo is twice as old! In {years_later} years, if you add their ages, you get {total_later}. How old is Sam right now?",
+        "mission": f"Astronaut Sam is {base_age} years old. His big brother Leo is twice as old! In {years_later} years, if you add their ages, you get {total_later}. How old is Sam right now?",
         "hint": f"Try a small number for Sam's age. If Sam is 5, Leo must be 10! Then add {years_later} to both and see if it equals {total_later}."
     })
 
@@ -43,7 +43,7 @@ def verify_age():
     correct_age = session.get('current_age', {}).get('base_age', -1)
     if user_answer == correct_age:
         update_session(True, 100)
-        return jsonify({"status": "success", "message": "YAY! You got it! You're a math superstar!", "score_update": session.get('score'), "accuracy": get_accuracy()})
+        return jsonify({"status": "success", "message": "WHOOSH! You got it! You're a super space cadet!", "score_update": session.get('score'), "accuracy": get_accuracy()})
     else:
         update_session(False)
         return jsonify({"status": "error", "message": "Almost! Give it another try! You can do it!", "score_update": session.get('score'), "accuracy": get_accuracy()})
@@ -57,7 +57,7 @@ def get_pattern():
     seq_display = f"{seq[0]} -> {seq[1]} -> {seq[2]} -> {seq[3]} -> ? -> {seq[5]}"
     session['current_pattern'] = {'missing': missing, 'pattern_type': 'multiply'}
     return jsonify({
-        "mission": f"Look at these numbers hopping along: {seq_display}. What's the mystery number under the question mark?",
+        "mission": f"Look at these numbers hopping along the magic train: {seq_display}. What's the mystery number under the question mark?",
         "hint": f"Look at {seq[0]} and {seq[1]}. Did we add something or multiply by {multiplier}? Keep following that rule!"
     })
 
@@ -87,7 +87,7 @@ def get_fruit():
     oranges = total - apples
     session['current_fruit'] = {'oranges': oranges}
     return jsonify({
-        "mission": f"We have {total} pieces of fruit in a big basket. If {apples} of them are juicy red apples, how many oranges are left for us to eat?",
+        "mission": f"We have {total} space snacks in a big box. If {apples} of them are red apples, how many oranges are left for the astronauts?",
         "hint": f"If you take away {apples} from {total}, what's left over? That's your answer!"
     })
 
@@ -105,7 +105,7 @@ def verify_fruit():
     if answer == correct_val:
         score = 50 + max(0, int(50 - time_taken*2))
         update_session(True, score)
-        return jsonify({"status": "success", "message": "CORRECT! You're a fruit counting expert!", "score_update": session.get('score'), "accuracy": get_accuracy()})
+        return jsonify({"status": "success", "message": "KABOOM! You're a counting expert! Let's launch!", "score_update": session.get('score'), "accuracy": get_accuracy()})
     else:
         update_session(False)
         return jsonify({"status": "error", "message": "So close! Try counting one more time!", "score_update": session.get('score'), "accuracy": get_accuracy()})
